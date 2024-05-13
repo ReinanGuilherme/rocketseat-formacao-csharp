@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var teste = builder.Configuration.GetSection("Prop2").Value;
+var teste2 = builder.Configuration.GetValue<string>("Object:Prop1");
 
 var app = builder.Build();
 
