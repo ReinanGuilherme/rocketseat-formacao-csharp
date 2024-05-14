@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyFirstApi.Communication.Request;
+using MyFirstApi.Communication.Responses;
 
 namespace MyFirstApi.Controllers
 {
@@ -14,6 +16,19 @@ namespace MyFirstApi.Controllers
         public IActionResult Get([FromRoute] int id, [FromRoute] string nickName, [FromHeader] int? age)
         {
             return Ok("Reinan");
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
+        public IActionResult Create([FromBody] RequestRegisterUserJson request)
+        {
+            var response = new ResponseRegisteredUserJson
+            {
+                Id = 1,
+                Name = request.Name,
+            };
+
+            return Created(string.Empty, response);
         }
     }
 }
