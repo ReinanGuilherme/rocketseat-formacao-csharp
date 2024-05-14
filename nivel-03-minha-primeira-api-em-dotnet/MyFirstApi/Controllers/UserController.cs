@@ -49,5 +49,25 @@ namespace MyFirstApi.Controllers
         {
             return NoContent();
         }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(List<User>),StatusCodes.Status204NoContent)]
+        public IActionResult GetAll()
+        {
+            var response = new List<User>()
+            {
+                new User() {Id= 1, Age = 7, Name="Reinan"},
+                new User() {Id= 2, Age = 7, Name="Maria"}
+            };
+
+            return Ok(response);
+        }
+
+        [HttpPut("change-password")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult ChangePassword([FromBody] RequestChangePasswordJson request)
+        {
+            return NoContent();
+        }
     }
 }
