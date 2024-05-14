@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFirstApi.Communication.Request;
+using MyFirstApi.Communication.Requests;
 using MyFirstApi.Communication.Responses;
 
 namespace MyFirstApi.Controllers
@@ -29,6 +30,24 @@ namespace MyFirstApi.Controllers
             };
 
             return Created(string.Empty, response);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Update(
+            [FromRoute] int id,
+            [FromBody] RequestUpdateUserProfileJson request)
+        {
+            return NoContent();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            return NoContent();
         }
     }
 }
