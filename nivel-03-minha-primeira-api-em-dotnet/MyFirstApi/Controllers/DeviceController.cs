@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyFirstApi.Entities;
 
 namespace MyFirstApi.Controllers
 {
@@ -8,7 +9,11 @@ namespace MyFirstApi.Controllers
     {
         public IActionResult Get()
         {
-            return Ok(Author);
+            var laptop = new Laoptop();
+
+            var model = laptop.GetBranch();
+
+            return Ok(model);
         }
     }
 }
