@@ -4,7 +4,14 @@
     {
         public override string GetBranch()
         {
+            Hello();
+
             return "Apple";
+        }
+
+        public override string Hello()
+        {
+            return "Reinan";
         }
 
         public string GetModel()
