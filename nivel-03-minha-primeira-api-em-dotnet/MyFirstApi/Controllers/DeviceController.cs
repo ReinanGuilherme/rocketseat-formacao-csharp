@@ -4,16 +4,16 @@ using MyFirstApi.Entities;
 
 namespace MyFirstApi.Controllers
 {
-    
+
     public class DeviceController : MyFirstApiBaseController
     {
+        [HttpGet]
         public IActionResult Get()
         {
-            var laptop = new Laoptop();
 
-            var model = laptop.GetBranch();
+            var key = GetCustomKey();
 
-            return Ok(model);
+            return Ok(key);
         }
     }
 }
