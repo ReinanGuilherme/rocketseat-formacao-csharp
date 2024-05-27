@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace CashFlow.Api.Filters
 {
-    public class ExceptionFilte : IExceptionFilter
+    public class ExceptionFilter : IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {
@@ -27,6 +27,12 @@ namespace CashFlow.Api.Filters
                 var ex = (ErrorOnValidationException)context.Exception;
 
                 var errorResponse = new ResponseErrorJson(ex.Errors);
+
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new BadRequestObjectResult(errorResponse);
+            } else
+            {
+                var errorResponse = new ResponseErrorJson(context.Exception.Message);
 
                 context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
                 context.Result = new BadRequestObjectResult(errorResponse);
