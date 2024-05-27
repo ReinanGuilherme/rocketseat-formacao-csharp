@@ -24,14 +24,11 @@ namespace CashFlow.Api.Controllers
             }
             catch (ErrorOnValidationException ex)
             {
-                var errorsResponse = new ResponseErrorJson(ex.Errors);
-
-                return BadRequest(errorsResponse);
+                
             }
             catch
             {
-                var errorResponse = new ResponseErrorJson("unknown error");
-                return StatusCode(StatusCodes.Status500InternalServerError , errorResponse);
+               
             }
         }
     }
