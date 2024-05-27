@@ -9,33 +9,24 @@ namespace CashFlow.Application.UseCases.Expenses.Register
         public ResponseRegisteredExpenseJson Execute(RequestRegisterExpenseJson request)
         {
             Validate(request);
+
             return new ResponseRegisteredExpenseJson();
         }
 
         private void Validate(RequestRegisterExpenseJson request)
         {
-            var titleIsEmpty = string.IsNullOrWhiteSpace(request.Title);
-            if(titleIsEmpty)
-            {
-                throw new ArgumentException("the title is required.");
-            }
+           
+            var validator = new RegisterExpenseValidator();
 
-            if(request.Amount <= 0)
-            {
-                throw new ArgumentException("The Amount mus be greater than zero.");
-            }
+            var result = validator.Validate(request);
 
-            var result = DateTime.Compare(request.Date, DateTime.UtcNow);
-            if (result > 0)
+            if (!result.IsValid)
             {
-                throw new ArgumentException("Expenses cannot be for the future.");
-            }
+                var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
 
-            var paymentTypeIsValid = Enum.IsDefined(typeof(PaymentType), request.PaymentType);
-            if (!paymentTypeIsValid)
-            {
-                throw new ArgumentException("PaymentType not valid.");
+                throw new ArgumentException();
             }
+            
         }
     }
 }
