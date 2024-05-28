@@ -6,7 +6,7 @@ namespace CommonTetsUtilities.Requests
 {
     public class RequestRegisterExpenseJsonBuilder
     {
-        public RequestRegisterExpenseJson Build()
+        public static RequestRegisterExpenseJson Build()
         {
 
             return new Faker<RequestRegisterExpenseJson>()
