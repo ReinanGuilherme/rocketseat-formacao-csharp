@@ -72,18 +72,18 @@ namespace CashFlow.Exception {
         /// <summary>
         ///   Looks up a localized string similar to Expenses cannot be for the future..
         /// </summary>
-        public static string EXPENSES_CANNOT_BE_FOR_THE_FUTURE {
+        public static string EXPENSES_CANNOT_FOR_THE_FUTURE {
             get {
-                return ResourceManager.GetString("EXPENSES_CANNOT_BE_FOR_THE_FUTURE", resourceCulture);
+                return ResourceManager.GetString("EXPENSES_CANNOT_FOR_THE_FUTURE", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to PaymentType not valid..
         /// </summary>
-        public static string PAYMENT_TYPE_NOT_INVALID {
+        public static string PAYMENT_TYPE_INVALID {
             get {
-                return ResourceManager.GetString("PAYMENT_TYPE_NOT_INVALID", resourceCulture);
+                return ResourceManager.GetString("PAYMENT_TYPE_INVALID", resourceCulture);
             }
         }
         

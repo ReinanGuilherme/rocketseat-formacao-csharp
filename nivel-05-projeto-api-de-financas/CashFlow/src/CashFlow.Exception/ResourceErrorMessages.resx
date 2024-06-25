@@ -120,10 +120,10 @@
   <data name="AMOUNT_MUST_BE_GREATER_THAN_ZERO" xml:space="preserve">
     <value>The Amount mus be greater than zero.</value>
   </data>
-  <data name="EXPENSES_CANNOT_BE_FOR_THE_FUTURE" xml:space="preserve">
+  <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
     <value>Expenses cannot be for the future.</value>
   </data>
-  <data name="PAYMENT_TYPE_NOT_INVALID" xml:space="preserve">
+  <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
     <value>PaymentType not valid.</value>
   </data>
   <data name="TITLE_REQUIRED" xml:space="preserve">
