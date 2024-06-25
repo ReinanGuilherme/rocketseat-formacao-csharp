@@ -1,28 +1,32 @@
 ﻿using CashFlow.Domain.Repositories.Expenses;
+using System.Globalization;
 
 namespace CashFlow.Application.UseCases.Expenses.Reports.Pdf
 {
-        public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCase
+    public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCase
+    {
+        private const string CURRENCY_SYMBOL = "€";
+        private readonly IExpensesReadOnlyRepository _repository;
+
+        public GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository repository)
         {
-            private const string CURRENCY_SYMBOL = "€";
-            private readonly IExpensesReadOnlyRepository _repository;
+            _repository = repository;
+        }
 
-            public GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository repository)
+        public async Task<byte[]> Execute(string month)
+        {
+
+            DateTime monthFormatter = DateTime.ParseExact(month, "yyyy-MM", CultureInfo.InvariantCulture);
+
+            var expenses = await _repository.FilterByMonth(monthFormatter);
+            if (expenses.Count == 0)
             {
-                _repository = repository;
-            }
-
-            public async Task<byte[]> Execute(DateOnly month)
-            {
-                var expenses = await _repository.FilterByMonth(month);
-                if (expenses.Count == 0)
-                {
-                    return [];
-                }
-
-
-
                 return [];
             }
+
+
+
+            return [];
         }
+    }
 }

@@ -14,7 +14,7 @@ namespace CashFlow.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetPdf(
         [FromServices] IGenerateExpensesReportPdfUseCase useCase,
-        [FromQuery] DateOnly month)
+        [FromQuery] string month)
         {
             byte[] file = await useCase.Execute(month);
 

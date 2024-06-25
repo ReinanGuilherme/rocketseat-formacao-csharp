@@ -2,6 +2,6 @@
 {
     public interface IGenerateExpensesReportPdfUseCase
     {
-        Task<byte[]> Execute(DateOnly month);
+        Task<byte[]> Execute(string month);
     }
 }
