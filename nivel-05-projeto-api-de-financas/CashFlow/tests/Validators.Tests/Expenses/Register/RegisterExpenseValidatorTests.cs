@@ -1,18 +1,18 @@
-﻿using CashFlow.Application.UseCases.Expenses.Register;
+﻿using CashFlow.Application.UseCases.Expenses;
 using CashFlow.Communication.Enums;
 using CashFlow.Exception;
-using CommonTetsUtilities.Requests;
+using CommonTestUtilities.Requests;
 using FluentAssertions;
 
 namespace Validators.Tests.Expenses.Register
 {
-    public class RegisterExpenseValidatorTests
+	public class RegisterExpenseValidatorTests
     {
         [Fact]
         public void Sucesso()
         {
             //Arrange
-            var validator = new RegisterExpenseValidator();
+            var validator = new ExpenseValidator();
             var request = RequestRegisterExpenseJsonBuilder.Build();
 
             //Act
@@ -26,7 +26,7 @@ namespace Validators.Tests.Expenses.Register
         public void ErrorTitleEmpty()
         {
             //Arrange
-            var validator = new RegisterExpenseValidator();
+            var validator = new ExpenseValidator();
             var request = RequestRegisterExpenseJsonBuilder.Build();
             request.Title = string.Empty;
 
@@ -42,7 +42,7 @@ namespace Validators.Tests.Expenses.Register
         public void ErrorDateFuture()
         {
             //Arrange
-            var validator = new RegisterExpenseValidator();
+            var validator = new ExpenseValidator();
             var request = RequestRegisterExpenseJsonBuilder.Build();
             request.Date = DateTime.UtcNow.AddDays(1);
 
@@ -51,14 +51,14 @@ namespace Validators.Tests.Expenses.Register
 
             //Assert
             result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.EXPENSES_CANNOT_BE_FOR_THE_FUTURE));
+            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.EXPENSES_CANNOT_FOR_THE_FUTURE));
         }
 
         [Fact]
         public void ErrorPaymentTypeInvalid()
         {
             //Arrange
-            var validator = new RegisterExpenseValidator();
+            var validator = new ExpenseValidator();
             var request = RequestRegisterExpenseJsonBuilder.Build();
             request.PaymentType = (PaymentType)700;
 
@@ -67,7 +67,7 @@ namespace Validators.Tests.Expenses.Register
 
             //Assert
             result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.PAYMENT_TYPE_NOT_INVALID));
+            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.PAYMENT_TYPE_INVALID));
         }
 
         [Theory]
@@ -78,7 +78,7 @@ namespace Validators.Tests.Expenses.Register
         public void ErrorAmountInvalid(decimal amount)
         {
             //Arrange
-            var validator = new RegisterExpenseValidator();
+            var validator = new ExpenseValidator();
             var request = RequestRegisterExpenseJsonBuilder.Build();
             request.Amount = amount;
 
