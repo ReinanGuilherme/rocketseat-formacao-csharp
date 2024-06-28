@@ -20,7 +20,7 @@ Dentre os pacotes NuGet utilizados, o **AutoMapper** é o responsável pelo mape
 ![badge-dot-net]
 ![badge-windows]
 ![badge-visual-studio]
-![badge-mysql]
+![badge-sql-server]
 ![badge-swagger]
 
 ## Getting Started
