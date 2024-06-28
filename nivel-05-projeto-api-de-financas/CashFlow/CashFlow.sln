@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashFlow.Exception", "src\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashFlow.Infrastructure", "src\CashFlow.Infrastructure\CashFlow.Infrastructure.csproj", "{46ADF6C4-1034-48B8-A6B5-494B47803D27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{38FE0299-4610-487A-A3B3-D251356C7835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{38FE0299-4610-487A-A3B3-D251356C7835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTetsUtilities", "tests\CommonTetsUtilities\CommonTetsUtilities.csproj", "{3C9EC102-5DF1-4107-8AB8-F60C28BFD870}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTetsUtilities", "tests\CommonTetsUtilities\CommonTetsUtilities.csproj", "{3C9EC102-5DF1-4107-8AB8-F60C28BFD870}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{C9A52313-E8F9-4409-81C5-FD86E2DB8CBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

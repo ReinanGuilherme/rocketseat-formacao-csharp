@@ -18,10 +18,7 @@ namespace CashFlow.Infrastructure
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("Connection");
-            var version = new Version(8, 0, 37);
-            var serverVersion = new MySqlServerVersion(version);
-
-            services.AddDbContext<CashFlowDbContext>(config => config.UseMySql(connectionString, serverVersion));
+            services.AddDbContext<CashFlowDbContext>(config => config.UseSqlServer(connectionString));
         }
 
         private static void AddRepositories(IServiceCollection services)
