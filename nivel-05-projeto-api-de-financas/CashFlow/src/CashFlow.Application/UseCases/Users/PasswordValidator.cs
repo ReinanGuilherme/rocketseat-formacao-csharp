@@ -56,7 +56,7 @@ public partial class PasswordValidator<T> : PropertyValidator<T, string>
             return false;
         }
 
-        return false;
+        return true;
     }
 
     [GeneratedRegex(@"[A-Z]+")]
